@@ -1,0 +1,43 @@
+<%- include('partials/header') %>
+
+<div class="container">
+    <div class="customers-heading-box">
+        <h1>Transaction History</h1>
+        <p>
+            We record your transactions for safety.
+        </p>
+    </div>
+    <table class="table text-center">
+        <thead>
+            <tr>
+                <th>Transaction ID</th>
+                <th>Sender</th>
+                <th>Receiver</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody class="details">
+            <% transactionList.forEach(function(transaction) { %>
+                <tr>
+                    <td>
+                        <%= transaction._id %>
+                    </td>
+                    <td>
+                        <%= transaction.senderName %>
+                    </td>
+                    <td>
+                        <%= transaction.receiverName %>
+                    </td>
+                    <td>
+                        <%= transaction.amount %>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+
+
+<footer class="footer-static"><p class="text-center pt-3">&#169; Mohammad Kazim Abbas</p></footer>
+
+<%- include('partials/footer') %>

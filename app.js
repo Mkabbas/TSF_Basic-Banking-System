@@ -7,7 +7,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
-mongoose.connect('mongodb://localhost:27017/bankDB');
+mongoose.connect('mongodb+srv://admin-kazim:test123@cluster0.rkx7a2k.mongodb.net/bankDB?retryWrites=true&w=majority');
 
 const client = {
     name: String,
@@ -17,7 +17,16 @@ const client = {
     balance: Number
 }
 
+const transaction = {
+    sender: String,
+    senderName: String,
+    receiver: String,
+    receiverName: String,
+    amount: Number
+}
+
 const Client = new mongoose.model('Client', client);
+const Transaction = new mongoose.model('Transaction', transaction);
 
 var senderId = "";
 var amount = 0;
@@ -43,6 +52,17 @@ app.get('/customers/:customerName', function(req, res) {
     })
 });
 
+app.get('/transactions', function(req, res) {
+    Transaction.find(function(err, foundData) {
+        if(!err) {
+            console.log(foundData);
+            res.render('transactions', {
+                transactionList: foundData,
+            })
+        }
+    });
+});
+
 app.post('/customers', function(req, res) {
     senderId = req.body.sender;
     amount = req.body.amount;
@@ -55,6 +75,9 @@ app.post('/customers', function(req, res) {
 });
 
 app.post("/action", function(req, res) {
+    var senderName = "";
+    var receiverName = "";
+    
     if (req.body.action === "Get Details") {
         Client.findOne({_id: req.body.id}, function(err, foundData) {
             res.redirect("/customers/" + foundData.name);
@@ -70,10 +93,34 @@ app.post("/action", function(req, res) {
                 console.log(err);
             }
         });
-        res.render('transaction');
+
+        Client.findOne({_id: senderId}, function(err, foundData) {
+            if(!err) {
+                senderName = foundData.name;
+
+                Client.findOne({_id: req.body.id}, function(errr, foundDataa) {
+                    if(!errr) {
+                        receiverName = foundDataa.name;
+        
+                        const transaction = new Transaction ({
+                            sender: senderId,
+                            senderName: senderName,
+                            receiver: req.body.id,
+                            receiverName: receiverName,
+                            amount: amount
+                        })
+                        transaction.save();
+                    }
+                });
+            }
+        });
+
+
+
+        res.render('status');
     }
 });
 
-app.listen(3000, function() {
-    console.log("Server is live at port 3000.");
+app.listen(process.env.PORT || 3000, function() {
+    console.log("Server is live.");
 });
