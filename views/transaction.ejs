@@ -1,0 +1,15 @@
+<%- include('partials/header') %>
+
+<div class="text-center">
+    <h1 class="home-heading text-center">Transfer Successful !</h1>
+    <p class="home-text">Redirecting in 3 seconds....</p>
+</div>
+
+<footer class="footer-static"><p class="text-center pt-3">&#169; Mohammad Kazim Abbas</p></footer>
+<script>
+    setTimeout(function(){
+       window.location.href = '/customers';
+    }, 3000);
+ </script>
+
+<%- include('partials/footer') %>

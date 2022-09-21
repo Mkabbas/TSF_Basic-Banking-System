@@ -1,0 +1,45 @@
+<%- include('partials/header') %>
+
+
+<div class="container card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-xl-4 text-center">
+                <img class="customer-detail-img" src="/images/<%= customer.name %>.png">
+            </div>
+            <div class="col-xl-8">
+                <div class="customer-detail-heading">
+                    <h2><%= customer.name %></h2>
+                </div>
+                <ul class="list-unstyled">
+                    <li class="mb-3">
+                        <span class="details-head">Email:</span>
+                        <span class="details"> <%= customer.email %></span>
+                    </li>
+                    <li class="mb-3">
+                        <span class="details-head">Phone:</span>
+                        <span class="details"> <%= customer.number %></span>
+                    </li>
+                    <li class="mb-3">
+                        <span class="details-head">Address:</span>
+                        <span class="details"> <%= customer.address %></span>
+                    </li>
+                    <li class="mb-3">
+                        <span class="details-head mt-2">Balance:</span>
+                        <span class="details"> <%= customer.balance %></span>
+                    </li>
+                </ul>
+                <h3 class="heading-grey mt-5 mb-4">Funds Transfer</h3>
+                <form class="text-center pt-2" action="/customers" method="post">
+                    <label class="details-head me-2">Enter amount :</label>
+                    <input class="input-amount" name="amount" type="number" min="1" max="<%= customer.balance %>" autocomplete="off">
+                    <input type="hidden" name="sender" value="<%= customer._id %>">
+                    <button type="submit" class="btn ms-4">Transfer</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer-static"><p class="text-center pt-3">&#169; Mohammad Kazim Abbas</p></footer>
+<%- include('partials/footer') %>

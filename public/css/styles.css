@@ -1,0 +1,176 @@
+body{
+    margin-top: 150px;
+    background-color: #F1EEE9;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+h2 {
+    color: #fff;
+}
+
+thead {
+    background-color: #EC994B;
+    color: #fff;
+    font-size: 1.5rem;
+}
+.table thead tr th {
+    padding: 20px;
+    border: 0;
+}
+
+.table tbody tr td {
+    padding: 30px 20px;
+    vertical-align: middle;
+}
+
+.customer-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+}
+
+.customers-heading-box {
+    margin-bottom: 60px;
+}
+
+.customer-name {
+    color: #73777B
+}
+
+.btn {
+    background-color: #e4862d;
+    color: #F1EEE9;
+    --bs-btn-hover-bg: #cd5000;
+    --bs-btn-hover-color: #f1eee9;
+}
+
+
+/* Details */
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+    margin-bottom: 100px;
+}
+
+section {
+    padding: 120px 0;
+    background: #fff;
+}
+
+.details-head {
+    font-size: 1.1rem;
+    color: #4b4d4e;
+}
+
+.details {
+    color: #73777B;
+}
+
+.customer-detail-img {
+    height: 300px;
+    width: 300px;
+    border-radius: 5px;
+    margin: 50px;
+}
+
+.customer-detail-heading {
+    background-color: #EC994B;
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+    margin: 50px 0;
+}
+
+.heading-grey {
+    color: #4b4d4e;
+}
+
+.input-amount {
+    width: 25%
+}
+
+/* Header */
+
+.navbar {
+    background-color: #15133C;
+    color: #F1EEE9;
+    --bs-navbar-brand-hover-color: #F1EEE9;
+    height: 10vh;
+}
+
+.navbar-img {
+    height: 50px;
+    width: 50px;
+}
+
+.navbar-brand {
+    margin-top: 1rem;
+    color: #F1EEE9;
+}
+
+.nav-link {
+    display: inline;
+    color: #F1EEE9;
+    --bs-nav-link-hover-color: #F1EEE9;
+}
+
+/* Footer */
+
+.footer {
+    height: 5vh;
+    width: 100%;
+    background-color: #15133C;
+    color: #f1eee9c2;
+}
+
+.footer-static {
+    height: 5vh;
+    width: 100%;
+    background-color: #15133C;
+    position: fixed;
+	bottom: 0;
+    color: #f1eee9c2;
+}
+
+/* Home */
+
+.home-content {
+    margin-bottom: 100px;
+}
+
+.home-heading {
+    font-size: 5rem;
+    padding: 50px;
+    color: #4b4d4e;
+}
+
+.home-text {
+    font-size: 2rem;
+    padding: 10px;
+    color: #73777B;
+}
+
+.home-img-box {
+    margin: auto;
+}
+
+.home-img {
+    width: 100%;
+}

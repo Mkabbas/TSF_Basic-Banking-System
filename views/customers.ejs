@@ -1,0 +1,42 @@
+<%- include('partials/header') %>
+
+<div class="container">
+    <div class="customers-heading-box">
+        <h1>Customers</h1>
+        <p>
+            Our invaluable customers from all over the world.
+        </p>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="text-center">Customer</th>
+                <th>Name</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% customers.forEach(function(customer) { %>
+                <tr>
+                    <td class="text-center">
+                        <img class="customer-img" src="/images/<%= customer.name %>.png">
+                    </td>
+                    <td>
+                        <h3 class="customer-name"><%= customer.name %></h3>
+                    </td>
+                    <td>
+                        <form action="/action" method="post">
+                            <input type="hidden" name="action" value="<%= task %>">
+                            <input type="hidden" name="id" value="<%= customer._id %>">
+                            <button type="submit" class="btn"><%= task %></button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+
+<footer class="footer"><p class="text-center pt-3">&#169; Mohammad Kazim Abbas</p></footer>
+
+<%- include('partials/footer') %>
