@@ -6,6 +6,9 @@
         <p>
             We record your transactions for safety.
         </p>
+        <p>
+            (Most recent transaction at top)
+        </p>
     </div>
     <table class="table text-center">
         <thead>
@@ -17,7 +20,7 @@
             </tr>
         </thead>
         <tbody class="details">
-            <% transactionList.forEach(function(transaction) { %>
+            <% transactionList.slice().reverse().forEach(function(transaction) { %>
                 <tr>
                     <td>
                         <%= transaction._id %>

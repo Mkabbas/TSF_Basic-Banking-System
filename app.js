@@ -55,7 +55,6 @@ app.get('/customers/:customerName', function(req, res) {
 app.get('/transactions', function(req, res) {
     Transaction.find(function(err, foundData) {
         if(!err) {
-            console.log(foundData);
             res.render('transactions', {
                 transactionList: foundData,
             })
@@ -114,8 +113,6 @@ app.post("/action", function(req, res) {
                 });
             }
         });
-
-
 
         res.render('status');
     }
